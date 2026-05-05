@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/logo.svg" alt="Logo" height="32"> 
+          Medical Invoice
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">🏠 Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="add-medicine.html">💊 Medicines</a></li>
+            <li class="nav-item"><a class="nav-link active" href="invoice.html">📄 Invoices</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="clear-data">🗑️ Clear Data</a></li>
+            <li class="nav-item ms-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeToggle" role="switch">
+                <label class="form-check-label" for="darkModeToggle">🌙</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-4">
+      <h1>Create Invoice</h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <form id="invoice-form" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+              <label class="form-label">Invoice No</label>
+              <input type="text" class="form-control" id="invoice-no" readonly value="#1001">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control" id="invoice-date" required>
+            </div>
+
+            <div class="col-12 mt-4">
+              <h5>🛒 Items</h5>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover" id="invoice-items-table">
+                  <thead>
+                    <tr>
+                      <th>Medicine</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Line Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button type="button" class="btn btn-outline-primary" id="add-item">➕ Add Item</button>
+            </div>
+
+            <div class="col-md-6 offset-md-6">
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between">Subtotal <span id="subtotal">0</span></li>
+                <li class="list-group-item d-flex justify-content-between">Tax (5%) <span id="tax">0</span></li>
+                <li class="list-group-item d-flex justify-content-between fw-bold">Total <span id="total">0</span></li>
+              </ul>
+            </div>
+
+            <div class="col-12 mt-3">
+              <button class="btn btn-success" id="save-invoice">💾 Save Invoice</button>
+              <button class="btn btn-secondary" id="print-invoice" type="button">🖨️ Print</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card d-print-none">
+        <div class="card-body">
+          <h5 class="card-title">📋 Invoice History</h5>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover" id="invoices-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-center py-3">
+      <div class="container">
+        <p class="mb-0">&copy; <span id="year3"></span> Medical Invoice System. Made with ❤️</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/medicine.js"></script>
+    <script src="js/invoice.js"></script>
+  </body>
+</html>
